@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="70dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/layout_border"
+    tools:context=".activities.DashboardActivity">
+
+    <ImageView
+        android:id="@+id/tablet1"
+        android:layout_width="@dimen/status_icon_width"
+        android:layout_height="@dimen/status_icon_height"
+        android:layout_marginTop="@dimen/status_icon_margin_top"
+        android:src="@drawable/consumed_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dayname" />
+
+
+    <ImageView
+        android:id="@+id/tablet2"
+        android:layout_width="@dimen/status_icon_width"
+        android:layout_height="@dimen/status_icon_height"
+        android:layout_marginTop="@dimen/status_icon_margin_top"
+        android:src="@drawable/not_consumed_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tablet1" />
+
+    <ImageView
+        android:id="@+id/tablet3"
+        android:layout_width="@dimen/status_icon_width"
+        android:layout_height="@dimen/status_icon_height"
+        android:layout_marginTop="@dimen/status_icon_margin_top"
+        android:layout_marginBottom="@dimen/status_icon_margin_top"
+        android:src="@drawable/consumed_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tablet2" />
+
+    <TextView
+        android:id="@+id/dayname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Monday"
+        android:textColor="#222222"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

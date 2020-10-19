@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="status_icon_width">30dp</dimen>
+    <dimen name="status_icon_height">30dp</dimen>
+    <dimen name="status_icon_margin_top">10dp</dimen>
+    <dimen name="main_dashboard_margin_top">15dp</dimen>
+</resources>

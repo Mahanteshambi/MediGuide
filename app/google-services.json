@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "368903867478",
+    "firebase_url": "https://rxdoze-f5634.firebaseio.com",
+    "project_id": "rxdoze-f5634",
+    "storage_bucket": "rxdoze-f5634.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:368903867478:android:3dd3cb4923dc9ee1b57ff7",
+        "android_client_info": {
+          "package_name": "com.application.rxdos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "368903867478-et725noamkcljb49c4m9gb04kb1ed4gd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.application.rxdos",
+            "certificate_hash": "ce8c4f70063891d375e580f00a9dbfecfc19e350"
+          }
+        },
+        {
+          "client_id": "368903867478-qleo5pd12dd1ss735jbcus3q0s9u0mh0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkFUtEzmS_BC8SYyGopJbS3UD82qNPjBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "368903867478-qleo5pd12dd1ss735jbcus3q0s9u0mh0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
