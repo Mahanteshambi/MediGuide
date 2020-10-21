@@ -3,4 +3,9 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="black111">#111111</color>
+    <color name="black">#000000</color>
+    <color name="app_backgroud_color">#597ABD</color>
+    <color name="app_gradient_color">#BFC1EA</color>
+    <color name="white">#FFFFFF</color>
 </resources>

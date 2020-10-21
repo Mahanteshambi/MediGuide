@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">RxDOSE</string>
     <string name="Medication1">Medication 1</string>
+    <string name="create_your_account">CREATE YOUR ACCOUNT</string>
+    <string name="signup_login">SIGN UP</string>
+    <string name="signup_suggestion"> or signup with</string>
+    <string name="sign_up_email_hint">Email</string>
+    <string name="sign_up_password_hint">Password</string>
+    <string name="sign_up_confirm_pwd_hint">Confirm password</string>
+
+    <string name="enter_proper_email">Enter valid email</string>
+    <string name="enter_proper_password">Enter valid password</string>
+    <string name="enter_proper_details">Validate entries</string>
+    <string name="acc_create_success">Successfully created your account!</string>
+    <string name="passwords_not_matching">Passwords are not matching</string>
 </resources>

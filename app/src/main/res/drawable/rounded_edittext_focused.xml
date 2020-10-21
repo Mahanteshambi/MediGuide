@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    android:shape="rectangle">
+
+    <corners
+        android:bottomLeftRadius="@dimen/sign_up_view_corners"
+        android:bottomRightRadius="@dimen/sign_up_view_corners"
+        android:topLeftRadius="@dimen/sign_up_view_corners"
+        android:topRightRadius="@dimen/sign_up_view_corners" />
+    <solid android:color="#FFFFFF" />
+    <stroke
+        android:width="2dp"
+        android:color="#FF0000" />
+</shape>
