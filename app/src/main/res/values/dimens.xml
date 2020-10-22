@@ -4,6 +4,8 @@
     <dimen name="status_icon_height">30dp</dimen>
     <dimen name="status_icon_margin_top">10dp</dimen>
     <dimen name="main_dashboard_margin_top">15dp</dimen>
+
+    <!--    Sign up activity dimensions-->
     <dimen name="sign_up_display_txt_margin_top">35dp</dimen>
     <dimen name="sign_up_start_margin_top">50dp</dimen>
     <dimen name="sign_up_text">17sp</dimen>
@@ -16,4 +18,9 @@
     <dimen name="sign_up_view_corners">25dp</dimen>
     <dimen name="sign_up_button_corners">20dp</dimen>
     <dimen name="sign_up_login_btn_txt_size">25sp</dimen>
+
+    <!--    Sign up dimensions-->
+    <dimen name="gmail_fb_icon_size">50dp</dimen>
+    <dimen name="gmail_fb_margin">30dp</dimen>
+    <dimen name="signin_sign_up_start_margin_top">10dp</dimen>
 </resources>

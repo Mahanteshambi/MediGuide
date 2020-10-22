@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -17,15 +16,17 @@ import androidx.annotation.Nullable;
 
 import com.application.rxdose.R;
 import com.application.rxdose.utils.Constants;
+import com.application.rxdose.utils.Utils;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.util.regex.Matcher;
 
 public class SignUpActivity extends Activity implements View.OnClickListener {
     private FirebaseAuth mAuth;
@@ -89,8 +90,31 @@ public class SignUpActivity extends Activity implements View.OnClickListener {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(SignUpActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(SignUpActivity.this, "Authentication failed.",
+//                                    Toast.LENGTH_SHORT).show();
+                            try {
+                                throw task.getException();
+                            }
+                            // if user enters wrong email.
+                            catch (FirebaseAuthWeakPasswordException weakPassword) {
+                                Log.d(TAG, "onComplete: weak_password");
+                                Toast.makeText(SignUpActivity.this, R.string.weak_password,
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                            // if user enters wrong password.
+                            catch (FirebaseAuthInvalidCredentialsException malformedEmail) {
+                                Log.d(TAG, "onComplete: malformed_email");
+                                Toast.makeText(SignUpActivity.this, R.string.invalid_email,
+                                        Toast.LENGTH_SHORT).show();
+                            } catch (FirebaseAuthUserCollisionException existEmail) {
+                                Log.d(TAG, "onComplete: exist_email");
+                                Toast.makeText(SignUpActivity.this, R.string.email_registered,
+                                        Toast.LENGTH_SHORT).show();
+                            } catch (Exception e) {
+                                Log.d(TAG, "onComplete: " + e.getMessage());
+                                Toast.makeText(SignUpActivity.this, R.string.went_wrong,
+                                        Toast.LENGTH_SHORT).show();
+                            }
                             updateUI(null);
                         }
 
@@ -107,17 +131,19 @@ public class SignUpActivity extends Activity implements View.OnClickListener {
         String emailId = emailEditTxt.getText().toString();
         String password = passwordEditTxt.getText().toString();
         String confirmPassword = confirmPasswordEditTxt.getText().toString();
-        if (!isValidEmail(emailId)) {
+        if (!Utils.isValidEmail(emailId)) {
             isEmailValid = false;
         }
-        if (password.length() < 8 && !isValidPassword(password)) {
+        if (password.length() < 8 && !Utils.isValidPassword(password)) {
             isPasswordValid = false;
         }
         if (confirmPassword.length() < 8
-                && !isValidPassword(confirmPassword)
-                && passwordEditTxt.getText().toString().equals(confirmPassword)) {
-            Toast.makeText(this, R.string.passwords_not_matching, Toast.LENGTH_SHORT).show();
+                && !Utils.isValidPassword(confirmPassword)) {
             isConfimPasswordValid = false;
+        }
+        if (!password.equals(confirmPassword)) {
+            Toast.makeText(this, R.string.passwords_not_matching, Toast.LENGTH_SHORT).show();
+            return false;
         }
         if (!isEmailValid || !isPasswordValid || !isConfimPasswordValid) {
             Toast.makeText(this, R.string.enter_proper_details, Toast.LENGTH_SHORT).show();
@@ -126,22 +152,13 @@ public class SignUpActivity extends Activity implements View.OnClickListener {
         return status;
     }
 
-    private boolean isValidEmail(CharSequence target) {
-        return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
-    }
-
-    private boolean isValidPassword(final String password) {
-        Matcher matcher = Constants.PASSWORD_PATTERN.matcher(password);
-        return matcher.matches();
-    }
-
 
     private void updateUI(FirebaseUser user) {
         hideProgressBar();
         if (user != null) {
-            Intent dashboardIntent = new Intent(SignUpActivity.this, DashboardActivity.class);
-            dashboardIntent.putExtra(Constants.UserNameTag, user);
-            startActivity(dashboardIntent);
+            Intent signInIntent = new Intent(SignUpActivity.this, SigninActivity.class);
+            signInIntent.putExtra(Constants.UserNameTag, user);
+            startActivity(signInIntent);
         } else {
             /*
             Something went wrong

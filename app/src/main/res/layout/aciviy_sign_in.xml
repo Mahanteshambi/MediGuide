@@ -8,47 +8,21 @@
     tools:context="com.application.rxdose.activities.SignUpActivity">
 
     <Button
-        android:id="@+id/signup_btn"
+        android:id="@+id/signin_btn"
         android:layout_width="@dimen/sign_up_edit_text_width"
         android:layout_height="@dimen/sign_up_edit_text_height"
         android:layout_marginTop="@dimen/sign_up_login_btn_margin_top"
         android:background="@drawable/sign_up_button"
-        android:text="@string/signup_login"
+        android:text="@string/signin_login"
         android:textColor="@color/white"
         android:textSize="@dimen/sign_up_login_btn_txt_size"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_confirm_pwd_edit_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_pwd_edit_tv" />
 
     <EditText
-        android:id="@+id/sign_up_pwd_edit_tv"
-        android:layout_width="@dimen/sign_up_edit_text_width"
-        android:layout_height="@dimen/sign_up_edit_text_height"
-        android:layout_marginTop="@dimen/sign_up_items_margin_top"
-        android:background="@drawable/rounded_edittext_states"
-        android:gravity="center"
-        android:hint="@string/sign_up_password_hint"
-        android:padding="@dimen/sign_up_edit_text_padding"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_email_edit_tv" />
-
-    <EditText
-        android:id="@+id/sign_up_confirm_pwd_edit_tv"
-        android:layout_width="@dimen/sign_up_edit_text_width"
-        android:layout_height="@dimen/sign_up_edit_text_height"
-        android:layout_marginTop="@dimen/sign_up_items_margin_top"
-        android:background="@drawable/rounded_edittext_states"
-        android:gravity="center"
-        android:hint="@string/sign_up_confirm_pwd_hint"
-        android:padding="@dimen/sign_up_edit_text_padding"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_pwd_edit_tv" />
-
-    <EditText
-        android:id="@+id/sign_up_email_edit_tv"
+        android:id="@+id/sign_in_email_edit_tv"
         android:layout_width="@dimen/sign_up_edit_text_width"
         android:layout_height="@dimen/sign_up_edit_text_height"
         android:layout_marginTop="@dimen/sign_up_email_margin_top"
@@ -59,6 +33,47 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/create_your_account_txt" />
+
+    <EditText
+        android:id="@+id/sign_in_pwd_edit_tv"
+        android:layout_width="@dimen/sign_up_edit_text_width"
+        android:layout_height="@dimen/sign_up_edit_text_height"
+        android:layout_marginTop="@dimen/sign_up_items_margin_top"
+        android:background="@drawable/rounded_edittext_states"
+        android:gravity="center"
+        android:hint="@string/sign_up_password_hint"
+        android:padding="@dimen/sign_up_edit_text_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_email_edit_tv" />
+
+    <LinearLayout
+        android:id="@+id/gmail_fb_linear_layout"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/or_signin_with">
+
+        <Button
+            android:id="@+id/gmail_image_view"
+            android:layout_width="@dimen/gmail_fb_icon_size"
+            android:layout_height="@dimen/gmail_fb_icon_size"
+
+            android:background="@drawable/google_logo" />
+
+        <Button
+            android:id="@+id/fb_image_view"
+            android:layout_width="@dimen/gmail_fb_icon_size"
+            android:layout_height="@dimen/gmail_fb_icon_size"
+            android:layout_marginStart="@dimen/gmail_fb_margin"
+            android:background="@drawable/facebook_new"
+            android:src="@drawable/rx_doze" />
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/icons_linear_layout"
@@ -86,7 +101,42 @@
             android:src="@drawable/lj_eye_icon" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/signup_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/signin_sign_up_start_margin_top"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gmail_fb_linear_layout">
+
+        <TextView
+            android:id="@+id/signup_suggest_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/Signin_signup_suggestion"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gmail_fb_linear_layout" />
+
+        <TextView
+            android:id="@+id/sign_up_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sigin_signup_text"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
     <TextView
+        android:id="@+id/or_signin_with"
         android:layout_width="@dimen/sign_up_edit_text_width"
         android:layout_height="@dimen/sign_up_edit_text_height"
         android:gravity="center"
@@ -95,20 +145,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/signin_btn" />
 
     <TextView
         android:id="@+id/create_your_account_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/sign_up_display_txt_margin_top"
-        android:text="@string/create_your_account"
+        android:text="@string/sigin_in_login_text"
         android:textColor="@color/white"
         android:textSize="@dimen/sign_up_text"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icons_linear_layout" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
