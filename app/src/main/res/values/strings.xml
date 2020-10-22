@@ -10,7 +10,19 @@
 
     <string name="enter_proper_email">Enter valid email</string>
     <string name="enter_proper_password">Enter valid password</string>
-    <string name="enter_proper_details">Validate entries</string>
+    <string name="enter_proper_details">Enter valid entries</string>
     <string name="acc_create_success">Successfully created your account!</string>
     <string name="passwords_not_matching">Passwords are not matching</string>
+
+    <!--    Sing in strings-->
+    <string name="sigin_in_login_text">LOGIN TO YOUR ACCOUNT</string>
+    <string name="signin_login">LOGIN</string>
+    <string name="Signin_signup_suggestion">Don\'t have an account?</string>
+    <string name="sigin_signup_text"><u>Signup</u></string>
+
+    <string name="weak_password">Password is weak</string>
+    <string name="invalid_email">Email does not exist!Please sigup</string>
+    <string name="email_registered">Email is already registered</string>
+    <string name="wrong_password">Wrong password</string>
+    <string name="went_wrong">Something went wrong! Please try again later</string>
 </resources>
