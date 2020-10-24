@@ -159,6 +159,7 @@ public class SignUpActivity extends Activity implements View.OnClickListener {
             Intent signInIntent = new Intent(SignUpActivity.this, SigninActivity.class);
             signInIntent.putExtra(Constants.UserNameTag, user);
             startActivity(signInIntent);
+            finish();
         } else {
             /*
             Something went wrong
