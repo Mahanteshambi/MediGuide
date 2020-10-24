@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/or_signin_with">
 
         <Button
-            android:id="@+id/gmail_image_view"
+            android:id="@+id/gmail_signin_btn"
             android:layout_width="@dimen/gmail_fb_icon_size"
             android:layout_height="@dimen/gmail_fb_icon_size"
 

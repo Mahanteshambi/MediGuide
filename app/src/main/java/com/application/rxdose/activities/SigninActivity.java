@@ -19,23 +19,35 @@ import com.application.rxdose.utils.Constants;
 import com.application.rxdose.utils.Utils;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.facebook.CallbackManager;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 
 public class SigninActivity extends Activity implements View.OnClickListener {
 
     private final String TAG = SigninActivity.class.getCanonicalName();
     private Button mLoginBtn;
+    private Button mGmailLoginBtn;
     private EditText mEmailEt;
     private EditText mPasswordEt;
     private AwesomeValidation awesomeValidation;
     private FirebaseAuth mAuth;
     private TextView mSignUpLinkTv;
+    private GoogleSignInClient mGoogleSignInClient;
+    private final int RC_SIGN_IN = 102450;
+    private CallbackManager callbackManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,6 +60,8 @@ public class SigninActivity extends Activity implements View.OnClickListener {
         mPasswordEt = findViewById(R.id.sign_in_pwd_edit_tv);
         mSignUpLinkTv = findViewById(R.id.sign_up_link);
         mSignUpLinkTv.setOnClickListener(this);
+        mGmailLoginBtn = findViewById(R.id.gmail_signin_btn);
+        mGmailLoginBtn.setOnClickListener(this);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
@@ -58,6 +72,17 @@ public class SigninActivity extends Activity implements View.OnClickListener {
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
         awesomeValidation.addValidation(this, R.id.sign_in_email_edit_tv, Patterns.EMAIL_ADDRESS, R.string.enter_proper_email);
         awesomeValidation.addValidation(this, R.id.sign_in_pwd_edit_tv, Constants.PASSWORD_PATTERN.toString(), R.string.enter_proper_password);
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        // Build a GoogleSignInClient with the options specified by gso.
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+//        FacebookSdk.sdkInitialize(getApplicationContext());
+//        AppEventsLogger.activateApp(this);
+        callbackManager = CallbackManager.Factory.create();
     }
 
     @Override
@@ -70,6 +95,8 @@ public class SigninActivity extends Activity implements View.OnClickListener {
         } else if (view == mSignUpLinkTv) {
             Intent signUpIntent = new Intent(SigninActivity.this, SignUpActivity.class);
             startActivity(signUpIntent);
+        } else if (view == mGmailLoginBtn) {
+            gmailSignIn();
         }
     }
 
@@ -147,5 +174,53 @@ public class SigninActivity extends Activity implements View.OnClickListener {
             Something went wrong
              */
         }
+    }
+
+    private void gmailSignIn() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                // Google Sign In was successful, authenticate with Firebase
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
+                firebaseAuthWithGoogle(account.getIdToken());
+            } catch (ApiException e) {
+                // Google Sign In failed, update UI appropriately
+                Log.w(TAG, "Google sign in failed", e);
+                // ...
+            }
+        }
+    }
+
+    private void firebaseAuthWithGoogle(String idToken) {
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithCredential:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            Toast.makeText(SigninActivity.this, "Authentication Failed.", Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
+
+                        // ...
+                    }
+                });
     }
 }
