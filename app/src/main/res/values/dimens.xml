@@ -22,5 +22,6 @@
     <!--    Sign up dimensions-->
     <dimen name="gmail_fb_icon_size">50dp</dimen>
     <dimen name="gmail_fb_margin">30dp</dimen>
-    <dimen name="signin_sign_up_start_margin_top">10dp</dimen>
+    <dimen name="signin_sign_up_start_margin_top">20dp</dimen>
+    <dimen name="signin_signupmargin_start">10dp</dimen>
 </resources>
