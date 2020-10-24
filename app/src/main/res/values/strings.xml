@@ -25,4 +25,8 @@
     <string name="email_registered">Email is already registered</string>
     <string name="wrong_password">Wrong password</string>
     <string name="went_wrong">Something went wrong! Please try again later</string>
+
+    <string name="facebook_app_id">824690311622826</string>
+    <string name="fb_login_protocol_scheme">fb824690311622826</string>
+
 </resources>
