@@ -219,7 +219,7 @@ public class SigninActivity extends Activity implements View.OnClickListener {
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            Intent dashboardIntent = new Intent(SigninActivity.this, DashboardActivity.class);
+            Intent dashboardIntent = new Intent(SigninActivity.this, MainActivity.class);
             dashboardIntent.putExtra(Constants.UserNameTag, user);
             startActivity(dashboardIntent);
         } else {

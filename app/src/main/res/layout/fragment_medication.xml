@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="#8BE18E">
+
+        <RelativeLayout
+            android:padding="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/logo1"
+                android:layout_width="120dp"
+                android:layout_height="90dp"
+                android:layout_alignParentLeft="true"
+                app:srcCompat="@drawable/eye_drop_imag"/>
+
+            <TextView
+                android:id="@+id/medicinename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/logo1"
+                android:text="AZEMOX"
+                android:textColor="#fff"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/drop_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/logo1"
+                android:text="One Drop - 7AM"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_below="@id/medicinename"/>
+
+            <ImageView
+                android:id="@+id/dropimage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat="@drawable/drop_icon"
+                android:layout_toRightOf="@+id/logo1"
+                android:layout_below="@id/drop_time"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:id="@+id/day_text"
+                android:layout_width="60dp"
+                android:layout_height="90dp"
+                android:layout_toRightOf="@+id/medicinename"
+                android:text="DAY ONE"
+                android:textColor="#fff"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:rotation="-90"
+                android:layout_marginLeft="20dp"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="#EDB561"
+        android:layout_below="@id/card_view">
+
+        <RelativeLayout
+            android:padding="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/logo2"
+                android:layout_width="120dp"
+                android:layout_height="90dp"
+                android:layout_alignParentLeft="true"
+                app:srcCompat="@drawable/eye_drop_imag"/>
+
+            <TextView
+                android:id="@+id/medicinename2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/logo2"
+                android:text="AZEMOX"
+                android:textColor="#fff"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/drop_time2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/logo2"
+                android:text="One Drop - 7AM"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_below="@id/medicinename2"/>
+
+            <ImageView
+                android:id="@+id/dropimage2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat="@drawable/drop_icon"
+                android:layout_toRightOf="@+id/logo2"
+                android:layout_below="@id/drop_time2"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:id="@+id/day_text2"
+                android:layout_width="60dp"
+                android:layout_height="90dp"
+                android:layout_toRightOf="@+id/medicinename2"
+                android:text="DAY ONE"
+                android:textColor="#fff"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:rotation="-90"
+                android:layout_marginLeft="20dp"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="#8B98DA"
+        android:layout_below="@id/card_view1">
+
+        <RelativeLayout
+            android:padding="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/logo3"
+                android:layout_width="120dp"
+                android:layout_height="90dp"
+                android:layout_alignParentLeft="true"
+                app:srcCompat="@drawable/eye_drop_imag"/>
+
+            <TextView
+                android:id="@+id/medicinename3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/logo3"
+                android:text="AZEMOX"
+                android:textColor="#fff"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/drop_time3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/logo3"
+                android:text="One Drop - 7AM"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_below="@id/medicinename3"/>
+
+            <ImageView
+                android:id="@+id/dropimage3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat="@drawable/drop_icon"
+                android:layout_toRightOf="@+id/logo3"
+                android:layout_below="@id/drop_time3"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:id="@+id/day_text3"
+                android:layout_width="60dp"
+                android:layout_height="90dp"
+                android:layout_toRightOf="@+id/medicinename3"
+                android:text="DAY ONE"
+                android:textColor="#fff"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:rotation="-90"
+                android:layout_marginLeft="20dp"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
