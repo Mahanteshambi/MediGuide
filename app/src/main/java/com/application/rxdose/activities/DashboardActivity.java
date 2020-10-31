@@ -26,7 +26,7 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        dAdapter = new DailyReportAdapter(viewCategories, dailyReportList);
+//        dAdapter = new DailyReportAdapter(viewCategories, dailyReportList);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         mLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mLayoutManager.setReverseLayout(true);

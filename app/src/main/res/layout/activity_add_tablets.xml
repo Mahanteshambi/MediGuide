@@ -17,7 +17,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:id="@+id/addIcon"
-            android:src="@drawable/not_consumed_icon"
+            android:src="@drawable/uncheck"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="180dp">
         </ImageView>
@@ -44,7 +44,7 @@
             android:timePickerMode="spinner">
         </TimePicker>
 
-        
+
 
     </RelativeLayout>
 

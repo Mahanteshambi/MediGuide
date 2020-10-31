@@ -16,12 +16,18 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.application.rxdose.R;
+import com.application.rxdose.interfaces.HomeFragInterface;
+import com.application.rxdose.utils.Constants;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements
+        NavigationView.OnNavigationItemSelectedListener,
+        HomeFragInterface {
     private AppBarConfiguration mAppBarConfiguration;
     private NavController navController;
     private TextView mPatientName;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +45,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_timeline, R.id.nav_medication)
+                R.id.nav_home, R.id.nav_timeline, R.id.medication_fragment)
                 .setDrawerLayout(drawer)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
 //        NavigationUI.setupWithNavController(navigationView, navController);
-
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            user = extras.getParcelable(Constants.UserNameTag);
+        }
+//        UserInfoModel model = new ViewModelProvider(this).get(UserInfoModel.class);
+//        model.setUsers(new MutableLiveData(user));
     }
 
     @Override
@@ -72,12 +83,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_home) {
             navController.navigate(R.id.nav_home);
         } else if (id == R.id.nav_medication) {
-            navController.navigate(R.id.nav_medication);
+            navController.navigate(R.id.medication_fragment);
+        } else if (id == R.id.nav_profile) {
+            navController.navigate(R.id.profile_fragment);
+        } else if (id == R.id.nav_timeline) {
+            navController.navigate(R.id.timeline_fragment);
         } else if (id == R.id.nav_item_exit) {
             finish();
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void setUser(FirebaseUser user) {
+        this.user = user;
+    }
+
+    @Override
+    public FirebaseUser getUser() {
+        return user;
     }
 }

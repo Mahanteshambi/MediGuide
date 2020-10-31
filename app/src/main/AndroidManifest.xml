@@ -14,14 +14,14 @@
         <activity android:name=".activities.AddTablets"></activity>
         <activity android:name=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity android:name=".activities.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activities.SplashScreenActivity">
+
         </activity>
         <activity android:name=".activities.SignUpActivity">
 
@@ -29,7 +29,8 @@
         <activity android:name=".activities.SigninActivity">
 
         </activity>
-        <activity android:name=".activities.DashboardActivity">
+        <activity android:name=".activities.DashboardActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
 
