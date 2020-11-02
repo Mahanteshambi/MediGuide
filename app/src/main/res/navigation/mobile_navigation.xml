@@ -24,4 +24,8 @@
         android:id="@+id/timeline_fragment"
         android:name="com.application.rxdose.fragments.TimelineFragment"
         tools:layout="@layout/fragment_timeline" />
+    <fragment
+        android:id="@+id/prescription_fragment"
+        android:name="com.application.rxdose.fragments.PrescriptionFragment"
+        tools:layout="@layout/fragment_prescription" />
 </navigation>

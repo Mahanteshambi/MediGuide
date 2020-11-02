@@ -22,6 +22,10 @@
             android:title="@string/timeline_view" />
 
         <item
+            android:id="@+id/nav_prescription"
+            android:title="@string/prescriptions_view" />
+
+        <item
             android:id="@+id/nav_item_four"
             android:title="Today's Schedule" />
 
