@@ -11,12 +11,21 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_medication"
+        android:id="@+id/profile_fragment"
+        android:name="com.application.rxdose.fragments.ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/medication_fragment"
         android:name="com.application.rxdose.fragments.MedicationFragment"
         tools:layout="@layout/fragment_medication" />
 
     <fragment
-        android:id="@+id/nav_timeline"
-        android:name="com.application.rxdose.fragments.MoviesFragment"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/timeline_fragment"
+        android:name="com.application.rxdose.fragments.TimelineFragment"
+        tools:layout="@layout/fragment_timeline" />
+    <fragment
+        android:id="@+id/prescription_fragment"
+        android:name="com.application.rxdose.fragments.PrescriptionFragment"
+        tools:layout="@layout/fragment_prescription" />
 </navigation>

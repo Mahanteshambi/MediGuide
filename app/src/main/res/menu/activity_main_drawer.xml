@@ -5,8 +5,13 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+        android:id="@+id/nav_home"
+        android:title="@string/home_info" />
+
+        <item
+            android:id="@+id/nav_profile"
             android:title="@string/profile_info" />
+
 
         <item
             android:id="@+id/nav_medication"
@@ -15,6 +20,10 @@
         <item
             android:id="@+id/nav_timeline"
             android:title="@string/timeline_view" />
+
+        <item
+            android:id="@+id/nav_prescription"
+            android:title="@string/prescriptions_view" />
 
         <item
             android:id="@+id/nav_item_four"

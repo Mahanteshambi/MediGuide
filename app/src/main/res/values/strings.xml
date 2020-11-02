@@ -28,11 +28,15 @@
 
     <string name="facebook_app_id">824690311622826</string>
     <string name="fb_login_protocol_scheme">fb824690311622826</string>
-    <string name="profile_info">Home</string>
+    <string name="profile_info">Profile</string>
+    <string name="home_info">Home</string>
     <string name="timeline_view">Timeline View</string>
+    <string name="prescriptions_view">Prescriptions</string>
     <string name="medication">Medication</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="empty_list_text">Tablet list is empty</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
